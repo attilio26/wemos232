@@ -1,5 +1,5 @@
 <?php
-//09-05-2017
+//11-07-2018
 //started on 06-04-2017
 // La app di Heroku si può richiamare da browser con  
 //			https://myespot.herokuapp.com/
@@ -139,7 +139,7 @@ else
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["/temp", "/mb", "/rh", "/meteo"], ["/led", "/acq", "/verbose"]], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": [["/temp", "/mb", "/rh", "/meteo"], ["/led", "/acq", "/verbose"]], "resize_keyboard": true, "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 

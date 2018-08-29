@@ -1,12 +1,9 @@
 <?php
-//11-07-2018
+//29-08-2018
 //started on 06-04-2017
 // La app di Heroku si può richiamare da browser con  
 //			https://myespot.herokuapp.com/
-
-
 /*API key = 337086481:AAFZM670VVwr2q9DDqx1_XbHBOlVnQxSroY
-
 da browser request ->   https://api.telegram.org/bot337086481:AAFZM670VVwr2q9DDqx1_XbHBOlVnQxSroY/getMe 
            answer  <-   {"ok":true,"result":{"id":337086481,"first_name":"heroku","username":"heroku_bot"}} 
 		   
@@ -19,7 +16,6 @@ $update = json_decode($content, true);
 if(!$update){
   exit;
 }
-
 $message = isset($update['message']) ? $update['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
 $chatId = isset($message['chat']['id']) ? $message['chat']['id'] : "";
@@ -33,9 +29,7 @@ $text = trim($text);
 // converto tutti i caratteri alfanumerici del messaggio in minuscolo
 $text = strtolower($text);
 header("Content-Type: application/json");
-
 $response = '';
-
 if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
 	$response = "Ciao $firstname, benvenuto! \n List of commands : \n /temp -> temperatura da DS18B20
 	/led -> Contatore impulsi led ENEL (reset ogni 20m) \n /rh -> umidita da DHT11
@@ -132,15 +126,13 @@ else
 {
 	$response = "Comando non valido!";
 }
-
 // la mia risposta è un array JSON composto da chat_id, text, method
 // chat_id mi consente di rispondere allo specifico utente che ha scritto al bot
 // text è il testo della risposta
-$parameters = array('chat_id' => $chatId, "text" => $response);
-$parameters["method"] = "sendMessage";
+$parameters = array('chat_id' => $chatId, "text" => $response, 'method' => "sendMessage");
+//$parameters["method"] = "sendMessage";
 // imposto la keyboard
 $parameters["reply_markup"] = '{ "keyboard": [["/temp", "/mb", "/rh", "/meteo"], ["/led", "/acq", "/verbose"]], "resize_keyboard": true, "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
-
 ?>

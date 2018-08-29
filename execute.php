@@ -132,7 +132,15 @@ else
 $parameters = array('chat_id' => $chatId, "text" => $response, 'method' => "sendMessage");
 //$parameters["method"] = "sendMessage";
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["/temp", "/mb", "/rh", "/meteo"], ["/led", "/acq", "/verbose"]], "resize_keyboard": true, "one_time_keyboard": false}';
+$keyboard = [
+    ['/temp', '/mb', '/rh'],
+    ['/led', '/acq'],
+    ['/meteo', '/verbose']
+];
+$parameters = array('reply_markup' => $keyboard, 'resize_keyboard' => true, 'one_time_keyboard' => true)
+
+
+//$parameters["reply_markup"] = '{ "keyboard": [["/temp", "/mb", "/rh", "/meteo"], ["/led", "/acq", "/verbose"]], "resize_keyboard": true, "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 ?>

@@ -137,9 +137,9 @@ $keyboard = [
     ['/led', '/acq'],
     ['/meteo', '/verbose']
 ];
-//$parameters["reply_markup"] = '{ "keyboard": [["/temp", "/mb", "/rh", "/meteo"], ["/led", "/acq", "/verbose"]], "resize_keyboard": true, "one_time_keyboard": false}';
-// converto e stampo l'array JSON sulla response
-//echo json_encode($parameters);
+$parameters["reply_markup"] = '{ "keyboard": [["/temp", "/mb", "/rh", "/mete"], ["/led", "/acq", "/verbose"]], "resize_keyboard": true, "one_time_keyboard": false}';
+
+
 
 $bot_interface = {
 	'chat_id' : $chatId;
@@ -150,5 +150,6 @@ $bot_interface = {
 			"keyboard":	$keyboard }
 	]
 }
-echo json_encode($bot_interface);
+// converto e stampo l'array JSON sulla response
+echo json_encode($parameters);
 ?>

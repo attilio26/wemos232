@@ -1,15 +1,15 @@
 <?php
 //31-08-2018
 //started on 06-04-2017
-// La app di Heroku si può richiamare da browser con  
+// La app di Heroku si può richiamare da browser con
 //			https://myespot.herokuapp.com/
 
 
 /*API key = 337086481:AAFZM670VVwr2q9DDqx1_XbHBOlVnQxSroY
 
-da browser request ->   https://api.telegram.org/bot337086481:AAFZM670VVwr2q9DDqx1_XbHBOlVnQxSroY/getMe 
-           answer  <-   {"ok":true,"result":{"id":337086481,"first_name":"heroku","username":"heroku_bot"}} 
-		   
+da browser request ->   https://api.telegram.org/bot337086481:AAFZM670VVwr2q9DDqx1_XbHBOlVnQxSroY/getMe
+           answer  <-   {"ok":true,"result":{"id":337086481,"first_name":"heroku","username":"heroku_bot"}}
+
 riferimenti:
 https://gist.github.com/salvatorecordiano/2fd5f4ece35e75ab29b49316e6b6a273
 https://www.salvatorecordiano.it/creare-un-bot-telegram-guida-passo-passo/
@@ -45,16 +45,16 @@ header("Content-Type: application/json");
 
 //ATTENZIONE!... Tutti i testi e i COMANDI contengono SOLO lettere minuscole
 $response = '';
-$helptext = "List of commands : 
-/on_on    -> Outlet2 ON  Outlet1 ON 
-/2on_1off -> Outlet2 ON  Outlet1 OFF  
-/2off_1on -> Outlet2 OFF Outlet1 ON
-/off_off  -> Outlet2 OFF Outlet1 OFF
+$helptext = "List of commands :
+/on_on    -> Interno ON  Veranda ON
+/Ion_Eoff -> Interno ON  Veranda OFF
+/Ioff_Eon -> Interno OFF Veranda ON
+/off_off  -> Interno OFF Veranda OFF
 /misure  -> Lettura DS18B20, DHT11, BMP280, Ledcounter, Caleffi
 ";
 
 if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
-	$response = "Ciao $firstname, benvenuto   \n". $helptext; 
+	$response = "Ciao $firstname, benvenuto   \n". $helptext;
 }
 //<-- Comandi ai rele
 elseif($text=="/on_on"){
@@ -75,7 +75,7 @@ elseif($text=="/misure"){
 }
 //<-- Manda a video la risposta completa
 elseif($text=="/verbose"){
-	$response = "chatId ".$chatId. "   messId ".$messageId. "  user ".$username. "   lastname ".$lastname. "   firstname ".$firstname. "\n". $helptext ;	
+	$response = "chatId ".$chatId. "   messId ".$messageId. "  user ".$username. "   lastname ".$lastname. "   firstname ".$firstname. "\n". $helptext ;
 	$response = $response. "\n\n Heroku + dropbox gmail.com";
 }
 

@@ -60,10 +60,10 @@ if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
 elseif($text=="/on_on"){
 	$response = file_get_contents("http://dario95.ddns.net:28081/rele/3");
 }
-elseif($text=="/2on_1off"){
+elseif($text=="/ion_eoff"){
 	$response = file_get_contents("http://dario95.ddns.net:28081/rele/2");
 }
-elseif($text=="/2off_1on"){
+elseif($text=="/ioff_eon"){
 	$response = file_get_contents("http://dario95.ddns.net:28081/rele/1");
 }
 elseif($text=="/off_off"){
@@ -90,7 +90,7 @@ else
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["/on_on", "/2on_1off"],["/2off_1on", "/off_off"],["/misure","/verbose"]], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": [["/on_on", "/ion_eoff"],["/ioff_eon", "/off_off"],["/misure","/verbose"]], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 

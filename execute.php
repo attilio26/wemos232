@@ -1,5 +1,5 @@
 <?php
-//31-08-2018
+//04-09-2018
 //started on 06-04-2017
 // La app di Heroku si può richiamare da browser con
 //			https://myespot.herokuapp.com/
@@ -76,7 +76,7 @@ elseif($text=="/mis"){
 }
 //<-- Lettura parametri slave5
 elseif($text=="/lina"){
-	$response = file_get_contents("http://dario95.ddns.net:28081/misure");
+	$response = file_get_contents("http://dario95.ddns.net:28081/lina");
 }
 //<-- Manda a video la risposta completa
 elseif($text=="/verbose"){

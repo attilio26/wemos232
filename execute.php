@@ -70,11 +70,11 @@ elseif($text=="/ioff_eon"){
 elseif($text=="/off_off"){
 	$response = file_get_contents("http://dario95.ddns.net:28081/rele/0");
 }
-//<-- Lettura parametri slave5
+//<-- Lettura parametri slave
 elseif($text=="/mis"){
 	$response = file_get_contents("http://dario95.ddns.net:28081/mis");
 }
-//<-- Lettura parametri slave5
+//<-- Lettura parametri slave
 elseif($text=="/lina"){
 	$response = file_get_contents("http://dario95.ddns.net:28081/lina");
 }

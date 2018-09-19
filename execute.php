@@ -1,5 +1,5 @@
 <?php
-//04-09-2018
+//19-09-2018
 //started on 06-04-2017
 // La app di Heroku si può richiamare da browser con
 //			https://myespot.herokuapp.com/
@@ -50,7 +50,7 @@ $helptext = "List of commands :
 /Ion_Eoff -> Interno ON  Veranda OFF
 /Ioff_Eon -> Interno OFF Veranda ON
 /off_off  -> Interno OFF Veranda OFF
-/mis      -> Lettura DS18B20, DHT11, BMP280, Ledcounter, Caleffi
+/azz      -> Azzeramento Ledcounter, Caleffi
 /lina     -> DS18B20, DHT11, BMP280, Ledcounter, Caleffi  <html>
 ";
 
@@ -70,9 +70,9 @@ elseif($text=="/ioff_eon"){
 elseif($text=="/off_off"){
 	$response = file_get_contents("http://dario95.ddns.net:28081/rele/0");
 }
-//<-- Lettura parametri slave
-elseif($text=="/mis"){
-	$response = file_get_contents("http://dario95.ddns.net:28081/mis");
+//<-- Azzeramento contatori slave
+elseif($text=="/azz"){
+	$response = file_get_contents("http://dario95.ddns.net:28081/azz");
 }
 //<-- Lettura parametri slave
 elseif($text=="/lina"){
@@ -95,7 +95,8 @@ else
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["\ud83d\udcaa /on_on", "/ion_eoff"],["/ioff_eon", "/off_off"],["/mis","/lina","/verbose"]], "one_time_keyboard": false}';
+// Gli EMOTICON sono a:     http://www.charbase.com/block/miscellaneous-symbols-and-pictographs
+$parameters["reply_markup"] = '{ "keyboard": [["\ud83d\udcaa /on_on", "/ion_eoff"],["/ioff_eon", "/off_off"],["/azz","/lina","/verbose"]], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 

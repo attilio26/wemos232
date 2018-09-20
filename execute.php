@@ -58,7 +58,7 @@ if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
 	$response = "Ciao $firstname, benvenuto   \n". $helptext;
 }
 //<-- Comandi ai rele
-elseif($text=="/on_on"){
+elseif(strpos($text,"on_on")){
 	$response = file_get_contents("http://dario95.ddns.net:28081/rele/3");
 }
 elseif($text=="/ion_eoff"){

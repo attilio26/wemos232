@@ -1,5 +1,5 @@
 <?php
-//30-11-2018
+//01-03-2019
 //started on 06-04-2017
 // La app di Heroku si può richiamare da browser con
 //			https://myespot.herokuapp.com/
@@ -51,6 +51,7 @@ $helptext = "List of commands :
 /Ioff_Eon -> Interno OFF Veranda ON
 /off_off  -> Interno OFF Veranda OFF
 /azz      -> Azzeramento Ledcounter, Caleffi
+/ts				-> ThingSpeak canale 88858
 /lina     -> DS18B20, DHT11, BMP280, Ledcounter, Caleffi  <html>
 ";
 
@@ -78,6 +79,10 @@ elseif($text=="/azz"){
 elseif($text=="/lina"){
 	$response = file_get_contents("http://dario95.ddns.net:28081/lina");
 }
+//<-- collegamento a ThingSpeak canale 88858 (fa riferimento a un file contenuto in Raspberry Wheezy)
+elseif(strpos($text,"ts")){
+	$response = file_get_contents("http://dario95.ddns.net:9080/linkTS88858.html");
+}
 //<-- Manda a video la risposta completa
 elseif($text=="/verbose"){
 	$response = "chatId ".$chatId. "   messId ".$messageId. "  user ".$username. "   lastname ".$lastname. "   firstname ".$firstname. "\n". $helptext ;
@@ -96,7 +101,7 @@ $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
 // imposto la keyboard
 // Gli EMOTICON sono a:     http://www.charbase.com/block/miscellaneous-symbols-and-pictographs
-$parameters["reply_markup"] = '{ "keyboard": [["/on_on \ud83d\udd34", "/ion_eoff"],["/ioff_eon", "/off_off \ud83d\udd35"],["/azz","/lina"]], "one_time_keyboard": false, "resize_keyboard": true}';
+$parameters["reply_markup"] = '{ "keyboard": [["/on_on \ud83d\udd34", "/ion_eoff"],["/ioff_eon", "/off_off \ud83d\udd35"],["/azz","/lina","/ts"]], "one_time_keyboard": false, "resize_keyboard": true}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 

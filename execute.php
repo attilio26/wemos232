@@ -1,5 +1,5 @@
 <?php
-//29-07-2019
+//12-05-2020
 //started on 06-04-2017
 // La app di Heroku si può richiamare da browser con
 //			https://myespot.herokuapp.com/
@@ -106,7 +106,7 @@ $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
 // imposto la keyboard
 // Gli EMOTICON sono a:     http://www.charbase.com/block/miscellaneous-symbols-and-pictographs
-$parameters["reply_markup"] = '{ "keyboard": [["/on_on \ud83d\udd34", "/ion_eoff"],["/ioff_eon", "/off_off \ud83d\udd35"],["/lock","/azz","/lina","/ts"]], "one_time_keyboard": false, "resize_keyboard": true}';
+$parameters["reply_markup"] = '{ "keyboard": [["/on_on \ud83d\udd34", "/ion_eoff"],["/ioff_eon", "/off_off \ud83d\udd35"],["/lock \ud83d\udd11"],["/azz","/lina","/ts"]], "one_time_keyboard": false, "resize_keyboard": true}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 

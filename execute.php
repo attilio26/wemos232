@@ -1,5 +1,5 @@
 <?php
-//14-05-2020
+//26-05-2020
 //started on 06-04-2017
 // La app di Heroku si può richiamare da browser con
 //			https://myespot.herokuapp.com/
@@ -81,7 +81,7 @@ elseif($text=="/lina"){
 	$response = file_get_contents("http://dario95.ddns.net:28081/lina");
 }
 //<-- Sblocco elettroserratura
-elseif(strpos($text,"/lock")){
+elseif(strpos($text,"lock")){
 	$response = file_get_contents("http://dario95.ddns.net:28081/lock");
 }
 //<-- collegamento a ThingSpeak canale 88858 (fa riferimento a un file contenuto in Raspberry Wheezy)

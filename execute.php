@@ -63,10 +63,10 @@ if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
 elseif(strpos($text,"on_on")){
 	$response = file_get_contents("http://dario95.ddns.net:28081/rele/3");
 }
-elseif(strpos($text,"/ion_eoff")){
+elseif(strpos($text,"ion_eoff")){
 	$response = file_get_contents("http://dario95.ddns.net:28081/rele/2");
 }
-elseif(strpos($text,"/ioff_eon")){
+elseif(strpos($text,"ioff_eon")){
 	$response = file_get_contents("http://dario95.ddns.net:28081/rele/1");
 }
 elseif(strpos($text,"off_off")){

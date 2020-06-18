@@ -82,10 +82,12 @@ if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
 }
 //<-- Comandi ai rele
 elseif(strpos($text,"int_on")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/?a=2");
+	$resp = file_get_contents("http://dario95.ddns.net:28081/?a=2");
+	$response = clean_html_page($resp);
 }
 elseif(strpos($text,"int_off")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/?a=3");
+	$resp = file_get_contents("http://dario95.ddns.net:28081/?a=3");
+	$response = clean_html_page($resp);
 }
 elseif(strpos($text,"ext_on")){
 	$response = file_get_contents("http://dario95.ddns.net:28081/?a=0");

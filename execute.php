@@ -46,10 +46,10 @@ header("Content-Type: application/json");
 //ATTENZIONE!... Tutti i testi e i COMANDI contengono SOLO lettere minuscole
 $response = '';
 $helptext = "List of commands :
-/on_on    -> Interno ON  Veranda ON
-/Ion_Eoff -> Interno ON  Veranda OFF
-/Ioff_Eon -> Interno OFF Veranda ON
-/off_off  -> Interno OFF Veranda OFF
+/int_on   -> Lampada interna accesa
+/int_off  -> Lampada interna spenta
+/ext_on   -> Lampada veranda accesa
+/ext_off  -> Lampada veranda spenta
 /lock			-> Sblocco Elettroserratura
 /azz      -> Azzeramento Ledcounter, Caleffi
 /ts				-> ThingSpeak canale 88858
@@ -60,17 +60,17 @@ if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
 	$response = "Ciao $firstname, benvenuto   \n". $helptext;
 }
 //<-- Comandi ai rele
-elseif(strpos($text,"on_on")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/rele/3");
+elseif(strpos($text,"int_on")){
+	$response = file_get_contents("http://dario95.ddns.net:28081/?a=2");
 }
-elseif(strpos($text,"ion_eoff")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/rele/2");
+elseif(strpos($text,"int_off")){
+	$response = file_get_contents("http://dario95.ddns.net:28081/?a=3");
 }
-elseif(strpos($text,"ioff_eon")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/rele/1");
+elseif(strpos($text,"ext_on")){
+	$response = file_get_contents("http://dario95.ddns.net:28081/?a=0");
 }
-elseif(strpos($text,"off_off")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/rele/0");
+elseif(strpos($text,"ext_off")){
+	$response = file_get_contents("http://dario95.ddns.net:28081/?a=1");
 }
 //<-- Azzeramento contatori slave
 elseif($text=="/azz"){
@@ -82,7 +82,7 @@ elseif($text=="/lina"){
 }
 //<-- Sblocco elettroserratura
 elseif(strpos($text,"lock")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/lock");
+	$response = file_get_contents("http://dario95.ddns.net:28081/?a=4");
 }
 //<-- collegamento a ThingSpeak canale 88858 (fa riferimento a un file contenuto in Raspberry Wheezy)
 elseif(strpos($text,"ts")){

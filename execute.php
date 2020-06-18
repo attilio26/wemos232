@@ -41,11 +41,6 @@ function clean_html_page($str_in){
 	$str_in = str_replace("_  2'/>","_",$str_in);
 	$str_in = str_replace("_  3'/>","_",$str_in);
 	$str_in = str_replace("_  4'/>","_",$str_in);
-	$str_in = str_replace("_  5'/>","_",$str_in);
-	$str_in = str_replace("_  6'/>","_",$str_in);
-	$str_in = str_replace("_  7'/>","_",$str_in);
-	$str_in = str_replace("_  8'/>","_",$str_in);
-	$str_in = str_replace("_  9'/>","_",$str_in);
 	return $str_in;
 }
 

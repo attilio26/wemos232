@@ -34,7 +34,7 @@ function clean_html_page($str_in){
 	$startch = strpos($str_in,"</h2><h1>") + 9 ;								//primo carattere utile da estrarre
 	$endch = strpos($str_in,"<br><footer>p");		 								//ultimo carattere utile da estrarre
 	$str_in = substr($str_in,$startch,$endch - $startch);				// substr(string,start,length)
-	$str_in = str_replace("<a href='?a="," ",$str_in);
+	$str_in = str_replace("</h1></header><img src="/test.svg" /"," ",$str_in);
 	$str_in = str_replace("</a></h2><h2>"," ",$str_in);
 	$str_in = str_replace("_  0'/>","_",$str_in);
 	$str_in = str_replace("_  1'/>","_",$str_in);

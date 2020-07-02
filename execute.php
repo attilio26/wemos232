@@ -85,10 +85,12 @@ elseif(strpos($text,"int_off")){
 	$response = clean_html_page($resp);
 }
 elseif(strpos($text,"ext_on")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/?a=0");
+	$resp = file_get_contents("http://dario95.ddns.net:28081/?a=0");
+	$response = clean_html_page($resp);
 }
 elseif(strpos($text,"ext_off")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/?a=1");
+	$resp = file_get_contents("http://dario95.ddns.net:28081/?a=1");
+	$response = clean_html_page($resp);
 }
 //<-- Azzeramento contatori slave
 elseif($text=="/azz"){
@@ -96,11 +98,13 @@ elseif($text=="/azz"){
 }
 //<-- Lettura parametri slave
 elseif($text=="/lina"){
-	$response = file_get_contents("http://dario95.ddns.net:28081/lina");
+	$resp = file_get_contents("http://dario95.ddns.net:28081");
+	$response = clean_html_page($resp);
 }
 //<-- Sblocco elettroserratura
 elseif(strpos($text,"lock")){
-	$response = file_get_contents("http://dario95.ddns.net:28081/?a=4");
+	$resp = file_get_contents("http://dario95.ddns.net:28081/?a=4");
+	$response = clean_html_page($resp);
 }
 //<-- collegamento a ThingSpeak canale 88858 (fa riferimento a un file contenuto in Raspberry Wheezy)
 elseif(strpos($text,"ts")){

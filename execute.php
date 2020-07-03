@@ -38,7 +38,7 @@ function clean_html_page($str_in){
 	$str_in = str_replace("<a href="," ",$str_in);
 	$str_in = str_replace("<h2>"," ",$str_in);
 	$str_in = str_replace("</h2>"," ",$str_in);
-	$str_in = str_replace("</a>"," ",$str_in);	
+	$str_in = str_replace("</a>","--",$str_in);	
 	$str_in = str_replace("_  2'/>","_",$str_in);
 	$str_in = str_replace("_  3'/>","_",$str_in);
 	$str_in = str_replace("_  4'/>","_",$str_in);

@@ -37,11 +37,15 @@ function clean_html_page($str_in){
 	$str_in = str_replace("</h1></header><img src="," ",$str_in);
 	$str_in = str_replace("<a href="," ",$str_in);
 	$str_in = str_replace("<h2>"," ",$str_in);
+	$str_in = str_replace("<br>"," ",$str_in);
 	$str_in = str_replace("</h2>"," ",$str_in);
 	$str_in = str_replace("</a>","--",$str_in);	
-	$str_in = str_replace("_  2'/>","_",$str_in);
-	$str_in = str_replace("_  3'/>","_",$str_in);
-	$str_in = str_replace("_  4'/>","_",$str_in);
+	$str_in = str_replace("'?a=0'/>"," ",$str_in);
+	$str_in = str_replace("'?a=1'/>","_",$str_in);
+	$str_in = str_replace("'?a=2'/>","_",$str_in);
+	$str_in = str_replace("'?a=3'/>"," ",$str_in);
+	$str_in = str_replace("'?a=4'/>","_",$str_in);
+	$str_in = str_replace("'?a=5'/>","_",$str_in);	
 	return $str_in;
 }
 

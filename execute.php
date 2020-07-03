@@ -36,7 +36,7 @@ function clean_html_page($str_in){
 	$str_in = substr($str_in,$startch,$endch - $startch);				// substr(string,start,length)
 	$str_in = str_replace("</h1></header><img src="," ",$str_in);
 	$str_in = str_replace("<a href="," ",$str_in);
-	$str_in = str_replace("<h2>"," ",$str_in,2);
+	$str_in = str_replace("<h2>"," ",$str_in);
 	$str_in = str_replace("_  1'/>","_",$str_in);
 	$str_in = str_replace("_  2'/>","_",$str_in);
 	$str_in = str_replace("_  3'/>","_",$str_in);
